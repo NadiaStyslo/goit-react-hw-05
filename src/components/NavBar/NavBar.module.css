@@ -1,0 +1,29 @@
+.nav {
+  display: flex;
+  gap: 4px;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.active {
+  color: rgb(154, 94, 146);
+}
+.title {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: 'Gambetta', serif;
+
+  transition: 700ms ease;
+  font-variation-settings: 'wght' 311;
+  margin-bottom: 0.8rem;
+  color: rgb(75, 46, 71);
+  outline: none;
+  text-align: center;
+}
