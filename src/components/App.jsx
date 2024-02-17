@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import NavBar from './NavBar/NavBar';
-import Home from '../Pages/Home/Home';
-import Movies from '../Pages/Movies/Movies';
-import NotFoundPage from '../Pages/NotFound/NotFoundPage';
+import Home from '../Pages/Home';
+import Movies from '../Pages/Movies';
+import NotFoundPage from '../Pages/NotFoundPage/';
 
 function App() {
   return (

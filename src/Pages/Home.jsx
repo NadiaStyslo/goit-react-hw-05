@@ -1,8 +1,7 @@
-import axios from 'axios';
-import findMovies from '../../api';
+import findMovies from '../api';
 import { useEffect, useState } from 'react';
 
-import PopularMovies from '../../components/PopularMovies/PopularMovies';
+import PopularMovies from '../components/PopularMovies/PopularMovies';
 
 export default function Home() {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -10,28 +9,36 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const controller = new AbortController();
     async function fetchData() {
       try {
         setError(false);
         setLoading(true);
-        const data = await findMovies();
+        const data = await findMovies({
+          abortController: controller,
+        });
         setPopularMovies(data);
         setLoading(false);
       } catch (error) {
         setError(true);
-        setPopularMovies([]);
+        // setPopularMovies([]);
       } finally {
         setLoading(false);
       }
     }
     fetchData();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
+
   return (
     <div>
       {error && <p>sorry!!!</p>}
       {loading && <p>loading, please wait</p>}
-      {loading && popularMovies === 0 && <p>not popular movies</p>}
-      {loading && popularMovies.length > 0 && <PopularMovies popularMovies={popularMovies} />}
+
+      {popularMovies.length > 0 && <PopularMovies popularMovies={popularMovies} />}
     </div>
   );
 }

@@ -8,15 +8,15 @@ const options = {
     api_key: API_KEY,
   },
 };
-const getMovieURl = (posterPath) => {
-  return `https://image.tmdb.org/t/p/w300/${posterPath}`;
-};
+// const getMovieURl = (posterPath) => {
+//   return `https://image.tmdb.org/t/p/w300/${posterPath}`;
+// };
 const findMovies = async () => {
-  const url = 'https://api.themoviedb.org/3/trending/movie/week?language=en-US';
+  const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
   const response = await axios.get(url, options);
-  return response.data.results.map((movie) => ({
-    ...movie,
-    poster_url: getMovieURl(movie.poster_path),
-  }));
+
+  return response;
+  // poster_url: getMovieURl(movie.poster_path),
 };
-export default { findMovies, getMovieURl };
+
+export default findMovies;
