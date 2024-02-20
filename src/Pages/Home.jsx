@@ -1,4 +1,4 @@
-import findMovies from '../api';
+import { findMovies } from '../api';
 import { useEffect, useState } from 'react';
 
 import PopularMovies from '../components/PopularMovies/PopularMovies';
@@ -21,7 +21,6 @@ export default function Home() {
         setLoading(false);
       } catch (error) {
         setError(true);
-        // setPopularMovies([]);
       } finally {
         setLoading(false);
       }
@@ -37,7 +36,6 @@ export default function Home() {
     <div>
       {error && <p>sorry!!!</p>}
       {loading && <p>loading, please wait</p>}
-
       {popularMovies.length > 0 && <PopularMovies popularMovies={popularMovies} />}
     </div>
   );

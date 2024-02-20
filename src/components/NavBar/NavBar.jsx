@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import css from './NavBar.module.css';
 
@@ -16,7 +16,6 @@ const NavBar = () => {
           MOVIES
         </NavLink>
       </nav>
-      <h1 className={css.title}>Trending today</h1>
     </div>
   );
 };

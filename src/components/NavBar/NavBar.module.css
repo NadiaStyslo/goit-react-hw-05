@@ -4,7 +4,7 @@
 }
 
 .link {
-  color: black;
+  color: rgb(43, 26, 119);
   text-decoration: none;
 }
 
@@ -13,17 +13,5 @@
 }
 
 .active {
-  color: rgb(154, 94, 146);
-}
-.title {
-  font-size: 20px;
-  text-transform: uppercase;
-  font-family: 'Gambetta', serif;
-
-  transition: 700ms ease;
-  font-variation-settings: 'wght' 311;
-  margin-bottom: 0.8rem;
-  color: rgb(75, 46, 71);
-  outline: none;
-  text-align: center;
+  color: rgb(241, 111, 135);
 }

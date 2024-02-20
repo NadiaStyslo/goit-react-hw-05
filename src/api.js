@@ -11,12 +11,15 @@ const options = {
 // const getMovieURl = (posterPath) => {
 //   return `https://image.tmdb.org/t/p/w300/${posterPath}`;
 // };
-const findMovies = async () => {
+export const findMovies = async () => {
   const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
-  const response = await axios.get(url, options);
+  const { data } = await axios.get(url, options);
 
-  return response;
-  // poster_url: getMovieURl(movie.poster_path),
+  return data.results;
 };
+export const getMovieDetail = async (movieId) => {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
+  const { data } = await axios.get(url, options);
 
-export default findMovies;
+  return data.results;
+};
