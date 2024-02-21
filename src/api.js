@@ -6,20 +6,29 @@ axios.defaults.BASE_URL = 'https://api.themoviedb.org/3';
 const options = {
   params: {
     api_key: API_KEY,
+    language: 'en-US',
   },
 };
+
 // const getMovieURl = (posterPath) => {
 //   return `https://image.tmdb.org/t/p/w300/${posterPath}`;
 // };
 export const findMovies = async () => {
-  const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US';
+  const url = 'https://api.themoviedb.org/3/trending/movie/day';
   const { data } = await axios.get(url, options);
 
   return data.results;
 };
 export const getMovieDetail = async (movieId) => {
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`;
+  const url = `https://api.themoviedb.org/3/movie/${movieId}`;
+  const { data } = await axios.get(url, options);
+  return data;
+};
+
+export const castInfo = async (movieId) => {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/credits`;
+
   const { data } = await axios.get(url, options);
 
-  return data.results;
+  return data.cast;
 };
