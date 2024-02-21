@@ -32,3 +32,9 @@ export const castInfo = async (movieId) => {
 
   return data.cast;
 };
+
+export const reviewMovie = async (movieId) => {
+  const url = `https://api.themoviedb.org/3/movie/${movieId}/reviews`;
+  const { data } = await axios.get(url, options);
+  return data.results;
+};

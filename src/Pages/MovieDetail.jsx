@@ -1,4 +1,4 @@
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, Outlet } from 'react-router-dom';
 import { useEffect, useState, useRef } from 'react';
 import { getMovieDetail } from '../api';
 import { BackLink } from '../components/BackLink/BackLink';
@@ -28,6 +28,7 @@ export default function MovieDetail() {
       {error && <p>sorry!!!</p>}
       <BackLink href={backLinkRef.current ?? '/'}>Go Home page</BackLink>
       {movieDetail && <MovieInfo movies={movieDetail} />}
+      <Outlet />
     </div>
   );
 }
