@@ -7,7 +7,7 @@ const buildLinkClass = ({ isActive }) => {
 };
 const NavBar = () => {
   return (
-    <div>
+    <div className={css.NavBar}>
       <nav className={css.nav}>
         <NavLink to="/" className={buildLinkClass}>
           HOME

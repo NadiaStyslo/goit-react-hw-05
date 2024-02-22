@@ -1,0 +1,11 @@
+.card {
+  display: flex;
+  gap: 20px;
+}
+.title {
+  font-weight: 600;
+  font-size: 23px;
+}
+.info {
+  margin-left: 20px;
+}

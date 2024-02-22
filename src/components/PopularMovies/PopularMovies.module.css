@@ -10,3 +10,11 @@
   outline: none;
   text-align: center;
 }
+.link {
+  text-decoration: none;
+  color: rgb(66, 20, 60);
+}
+.link:hover,
+.link:focus {
+  color: rgb(206, 183, 33);
+}

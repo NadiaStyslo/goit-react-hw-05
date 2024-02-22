@@ -38,3 +38,16 @@ export const reviewMovie = async (movieId) => {
   const { data } = await axios.get(url, options);
   return data.results;
 };
+
+export const searchMovie = async (query) => {
+  const url = `https://api.themoviedb.org/3/movie`;
+  const options = {
+    params: {
+      api_key: API_KEY,
+      language: 'en-US',
+      query: query,
+    },
+  };
+  const { data } = await axios.get(url, options);
+  return data.results;
+};
