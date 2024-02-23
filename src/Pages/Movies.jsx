@@ -32,7 +32,7 @@ const Movies = () => {
     }
     fetchSearch();
   }, [filter]);
-  console.log(results);
+  // console.log(results);
   return (
     <div>
       {error && <p>sorry!!!</p>}

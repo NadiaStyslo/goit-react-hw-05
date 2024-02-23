@@ -5,7 +5,7 @@ import { BackLink } from '../components/BackLink/BackLink';
 import { MovieInfo } from '../components/MovieInfo/MovieInfo';
 
 export default function MovieDetail() {
-  const location = useLocation;
+  const location = useLocation();
   const backLinkRef = useRef(location.state);
   const [error, setError] = useState(false);
   const [movieDetail, setMovieDetail] = useState(null);
@@ -27,7 +27,7 @@ export default function MovieDetail() {
   return (
     <div>
       {error && <p>sorry!!!</p>}
-      <BackLink href={backLinkRef.current ?? '/'}>Go Home page</BackLink>
+      <BackLink href={backLinkRef.current ?? '/movies'}>Go to all movies</BackLink>
       {movieDetail && <MovieInfo movies={movieDetail} />}
       <Outlet />
     </div>
