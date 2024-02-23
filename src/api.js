@@ -40,7 +40,7 @@ export const reviewMovie = async (movieId) => {
 };
 
 export const searchMovie = async (query) => {
-  const url = `https://api.themoviedb.org/3/movie`;
+  const url = `https://api.themoviedb.org/3/search/movie`;
   const options = {
     params: {
       api_key: API_KEY,

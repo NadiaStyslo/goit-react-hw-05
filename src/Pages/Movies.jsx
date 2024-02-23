@@ -6,20 +6,38 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 
 const Movies = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [error, setError] = useState(false);
+  const [params, setParams] = useSearchParams();
   const [results, setResults] = useState([]);
+  const location = useLocation;
+
+  const filter = params.get('query') ?? '';
+  const changeParams = (newParams) => {
+    params.set('query', newParams);
+    setParams(params);
+  };
+
   useEffect(() => {
-    const newQuery = searchParams.get('query') || ' ';
-    if (newQuery) {
-      MoviesSearch(newQuery);
-    } else {
-      setResults([]);
+    async function fetchSearch() {
+      // if (query)
+      // {
+      // }
+      try {
+        const data = await searchMovie(filter);
+        setError(false);
+        setResults(data);
+      } catch {
+        setError(true);
+      }
     }
-  }, [searchParams]);
+    fetchSearch();
+  }, [filter]);
+  console.log(results);
   return (
     <div>
-      <SearchInfo></SearchInfo>
-      <MoviesSearch></MoviesSearch>
+      {error && <p>sorry!!!</p>}
+      <SearchInfo onSearch={changeParams}></SearchInfo>
+      <MoviesSearch movies={results} />
     </div>
   );
 };

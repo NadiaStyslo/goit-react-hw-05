@@ -1,0 +1,17 @@
+.ul {
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.title {
+  font-size: 18px;
+  text-align-last: left;
+  margin: 0;
+  border-bottom: 1px solid #421541;
+  padding: 0 50px 0 20px;
+}
+
+.p {
+  font-size: 14px;
+  color: rgb(80, 39, 68);
+}

@@ -1,6 +1,7 @@
 import { reviewMovie } from '../../api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './ReviwesInfo.module.css';
 
 const ReviewsInfo = () => {
   const [error, setError] = useState(false);
@@ -24,11 +25,11 @@ const ReviewsInfo = () => {
       {error && <p>sorry!!!</p>}
       <div>
         {reviews.length > 0 ? (
-          <ul>
+          <ul className={css.ul}>
             {reviews.map(({ id, author, content }) => (
               <li key={id}>
-                <h2>{author}</h2>
-                <p>{content}</p>
+                <h2 className={css.title}>{author}</h2>
+                <p className={css.p}>{content}</p>
               </li>
             ))}
           </ul>

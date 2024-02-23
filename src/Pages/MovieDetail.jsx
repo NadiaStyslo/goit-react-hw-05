@@ -15,6 +15,7 @@ export default function MovieDetail() {
   useEffect(() => {
     async function fetchData() {
       try {
+        setError(false);
         const data = await getMovieDetail(movieId);
         setMovieDetail(data);
       } catch {

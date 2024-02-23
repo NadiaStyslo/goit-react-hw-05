@@ -1,11 +1,12 @@
 import toast from 'react-hot-toast';
+import css from './SearchInfo.module.css';
 
 const SearchInfo = ({ onSearch }) => {
   const handleSumbit = (evt) => {
     evt.preventDefault();
 
-    if (evt.target.elements.query.value.trim() === '') {
-      toast.error('EMPTY STRING!');
+    if (evt.target.query.value.trim() === '') {
+      toast.error('Enter movie name, please');
       return;
     }
     onSearch(evt.target.elements.query.value);
@@ -13,16 +14,19 @@ const SearchInfo = ({ onSearch }) => {
     // evt.target.reset();
   };
   return (
-    <header>
-      <form onSubmit={handleSumbit}>
+    <header className={css.header}>
+      <form className={css.form} onSubmit={handleSumbit}>
         <input
+          className={css.input}
           type="text"
           name="query"
           //   autocomplete="off"
           //   autofocus
           placeholder="Search movie"
         />
-        <button type="submit">Search</button>
+        <button className={css.btn} type="submit">
+          Search
+        </button>
       </form>
     </header>
   );

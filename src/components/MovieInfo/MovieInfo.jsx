@@ -30,10 +30,16 @@ export const MovieInfo = ({ movies }) => {
           <span className={css.span}>{movies.genres.map((items) => items.name).join(' ')}</span>
         </h3>
       </div>
-      <div className={css.information}>
+      <div>
         <h3 className={css.h3}> Additional information</h3>
-        <NavLink to="cast"> Cast</NavLink>
-        <NavLink to="reviews">Reviews</NavLink>
+        <div className={css.information}>
+          <NavLink className={css.cast} to="cast">
+            Cast
+          </NavLink>
+          <NavLink className={css.reviews} to="reviews">
+            Reviews
+          </NavLink>
+        </div>
       </div>
     </div>
   );

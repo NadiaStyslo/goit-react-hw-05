@@ -1,6 +1,7 @@
 // import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 const NavBar = lazy(() => import('./NavBar/NavBar'));
 const NotFoundPage = lazy(() => import('../Pages/NotFoundPage'));
@@ -25,6 +26,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      <Toaster />
     </div>
   );
 }

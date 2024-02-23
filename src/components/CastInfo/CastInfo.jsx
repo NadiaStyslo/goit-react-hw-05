@@ -1,6 +1,7 @@
 import { castInfo } from '../../api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './CastInfo.module.css';
 
 const CastInfo = () => {
   const defaultImg =
@@ -30,13 +31,13 @@ const CastInfo = () => {
         {castMovie.map(({ id, name, character, profile_path }) => (
           <li key={id}>
             <div>
-              <h2>{name}</h2>
+              <h2 className={css.title}>{name}</h2>
               <img
                 src={profile_path ? `https://image.tmdb.org/t/p/w500${profile_path}` : defaultImg}
                 alt={name}
                 width={150}
               />
-              <p>{character}</p>
+              <p className={css.p}>{character}</p>
             </div>
           </li>
         ))}
